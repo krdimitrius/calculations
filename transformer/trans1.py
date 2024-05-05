@@ -48,13 +48,47 @@ mydict = {
     "ask_change": "Заменить сердечник (y/n) ? ",
 }
 
+# Параметыр обмотки
+class Coil:
+    def __init__(self):
+
+        t = int(0) # число витков
+        v = float(0) # напряжение, В
+        c = float(0) # ток, А
+        dc = float(0) # диаметр провода по меди, мм
+        di = float(0) # диаметр провода по изоляции, мм 
+
+    def inp         
+
+# Параметры трансформатора
+class Transformer:
+    def __init__(self):
+
+        coils = [Coil()]
+        ncoils = int(1) # число обмоток
+        pn = float(0) # номинальная мощность, Вт
+        fs = float(0) # частота питающей сети, Гц   
+        bm = float(0) # Ампитуда магнитной индукции, Т
+        jj = float(0) # Плотность тока в обмотках, A/кв.мм
+        ko = float(0) # Коэффициент заполнения окна
+        km = float(0) # Коэффициент заполнения стержня  
+        sm = float(0) # сечение по меди
+        ss = float(0) # Произведение площади меди на площадь окна, кв.см*кв.см
+
+
+
+
+trans = Transformer
 
 def set_coils_param():
 
-    num_coils = int(input(mydict["asK_num_sec_coils"]))
-    
-    fs = float(input(mydict["ask_freq"]))
-    v = float(input(mydict["ask_voltage"]))
+    while 1:
+        num_coils = int(input(mydict["ask_num_sec_coils"]))
+        if num_coils > 0:
+            break;
+
+    trans.fs = float(input(mydict["ask_freq"]))
+    trans.coils[0].v = float(input(mydict["ask_voltage"]))
 
     for i in range(num_coils):
         print("\n" + mydict["coil"] + str(i + 1))

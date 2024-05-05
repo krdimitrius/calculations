@@ -1,1 +1,1 @@
-# newcalc
+# Utilities for engineering calculations

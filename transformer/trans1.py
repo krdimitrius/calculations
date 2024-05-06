@@ -7,11 +7,12 @@ Calculation of the power transformer
 
 mydict = {
     "copyright": "(c) Dmitry Krysin 2024",
-    "main": "Расчет силового трансформатора",
+    "version": "1.0",
+    "title": "\nРасчет силового трансформатора",
     "input": "\nВвод исходных данных:",
-    "coil": "Обмотка ",
-    "pn": "Номинальная мощность, Вт: ",
-    "current": "Ток, А : ",
+    "coil": "\nОбмотка {:0.0f}",
+    "pn": "Номинальная мощность: {:0.2f} Вт.",
+    "current": "Ток, А : {:0.2f}",
     "ask_num_sec_coils": "Число вторичных обмоток ? ",
     "ask_freq": "Частота, Гц ? ",
     "ask_voltage": "Напряжение, В ? ",
@@ -34,21 +35,21 @@ mydict = {
     "ask_di": "Диаметр провода по изоляции, мм ? ",
     "ask_toroid": "Тороидальный сердечник (y/n) ? ",
     "ask_change": "\nЗаменить сердечник (y/n) ? ",
-    "ss": "Sм x Sок, кв.см*кв.см : ",
-    "d0": "Толщина обмотки, мм :",
-    "bo": "Ширина окна, мм :",
-    "ymin": "Минимальный толщина набора, мм: ",
-    "hmin": "Минимальная высота, мм: ",
+    "ss": "Sм x Sок : {:0.2f} кв.см*кв.см.",
+    "d0": "Толщина обмотки: {:0.2f} мм.",
+    "bo": "Ширина окна    : {:0.2f} мм.",
+    "ymin": "Минимальный толщина набора: {:0.2f} мм.",
+    "hmin": "Минимальная высота: {:0.2f} мм.",
     "kernel_square": "\nПрямоугольный сердечник\n",
     "kernel_toroid": "\nТороидальный сердечник\n",
     "coils_param_1": "\nДанные обмоток:",
     "coils_param_2": "Обмотка  Число витков",
     "test_coil": "\nПроверка размещения:",
-    "test_coil_err": "Обмотка слишком толста!",
+    "test_coil_err": "*** Обмотка слишком толста !!!  ***",
     "test_coil_ok": "Обмотка размещается.",
     "err_kernel": "Сердечник не подходит!\nНеобходимо выбрать новый сердечник.",
     "results_1": "\nРезультаты:",
-    "results_2": "Обмотка Напр.,B  Ток,A  Витков  Диаметр, мм",
+    "results_2": "Обмотка  Напр.,B    Ток,A   Витков  Диаметр,мм",
     "size": "\nРазмеры (мм): ",
 }
 
@@ -86,7 +87,8 @@ class Coil:
                 break
 
     def print_c(self):
-        print(mydict["current"] + str(self.c))
+        print(mydict["current"].format(self.c))
+
 
 # Параметры трансформатора
 class Transformer:
@@ -124,7 +126,7 @@ class Transformer:
     def input_coils_params(self):
         i = 1
         for coil in self.coils:
-            print("\n" + mydict["coil"] + str(i))
+            print(mydict["coil"].format(i))
             if (i==1):
                 coil.input_v();
                 self.pn = 0
@@ -139,7 +141,7 @@ class Transformer:
     def input_coil_wire_params(self):
         i = 1
         for coil in self.coils:
-            print("\n" + mydict["coil"] + str(i))
+            print(mydict["coil"].format(i))
             coil.print_c()
             coil.input_dc()
             coil.input_di()
@@ -173,7 +175,7 @@ class Transformer:
                 break
 
         self.ss = 450000 * self.pn / self.fs / self.bm / self.jj / self.cc / self.cs
-        print(mydict["ss"] + str(self.ss/10000))
+        print(mydict["ss"].format(self.ss/10000))
 
     def input_square_params(self):
         print(mydict["kernel_square"])
@@ -193,7 +195,7 @@ class Transformer:
                     break
 
             t = self.ss / self.bo / self.ho / self.y0 * 1.01
-            print(mydict["ymin"] + str(t))
+            print(mydict["ymin"].format(t))
 
             while 1:
                 self.y1 = float(input(mydict["ask_y1"]))
@@ -220,7 +222,7 @@ class Transformer:
                     break
 
             t = 3 * self.ss / self.do / self.do / (self.do - self.di) * 1.01
-            print(mydict["hmin"] + str(t))
+            print(mydict["hmin"].format(t))
 
             while 1:
                 self.hs = float(input(mydict["ask_hs"]))
@@ -257,8 +259,8 @@ class Transformer:
             ns = 1 + int(coil.n / ws)
             d0 = d0 + ns * (coil.di + d2) + d3;
             
-        print(mydict["d0"] + str(d0))
-        print(mydict["bo"] + str(self.bo))
+        print(mydict["d0"].format(d0))
+        print(mydict["bo"].format(self.bo))
         if (self.bo < d0):
             print(mydict["test_coil_err"])
         else:
@@ -266,7 +268,7 @@ class Transformer:
 
     #print nominal power
     def print_pnom(self):
-        print(mydict["pn"] + str(self.pn))
+        print(mydict["pn"].format(self.pn))
 
     def print_coil_params(self):
         print(mydict["coils_param_1"])
@@ -275,7 +277,7 @@ class Transformer:
         i = 1
         for coil in self.coils:
             coil.n = int(coef * coil.v);
-            print(str(i) +" "+ str(coil.n))
+            print("{:7.0f} {:8.0f}".format(i, coil.n))
             i = i + 1
 
     def print_results(self):
@@ -284,22 +286,21 @@ class Transformer:
         print(mydict["results_2"])
         i = 1
         for coil in self.coils:
-            print(str(i) +" "+ str(coil.v) +" "+ str(coil.c) +" "+ str(coil.n) +" "+ str(coil.dc))
+            print("{:7.0f} {:8.2f} {:8.2f} {:8.0f} {:8.2f}".format(i, coil.v, coil.c, coil.n, coil.dc))
             i = i + 1
 
     def print_size_square(self):
-        print(mydict["size"])
-        print(str(self.y0) +"x"+ str(self.y1) +"-"+ str(self.bo) +"x"+ str(self.ho))
+        print(mydict["size"] + "{:0.1f}x{:0.1f}-{:0.1f}x{:0.1f}".format(self.y0, self.y1, self.bo, self.ho))
 
     def print_size_toroid(self):
-        print(mydict["size"])
-        print(str(self.do) +"/"+ str(self.di) +"-"+ str(self.hs))
+        print(mydict["size"] + "{:0.1f}/{:0.1f}-{:0.1f}".format(self.do, self.di, self.hs))
 
 def main():
 
     trans = Transformer()
 
-    print(mydict["main"])
+    print(mydict["title"])
+    print(mydict["copyright"]+" v"+mydict["version"])
     print(mydict["input"])
     trans.input_freq()
     trans.input_num_coils()

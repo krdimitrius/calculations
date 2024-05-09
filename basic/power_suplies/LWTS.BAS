@@ -1,0 +1,21 @@
+10 PRINT "€‘—…’ L ˆ‹ˆ W Š€’“˜Šˆ € Ž…‚ŽŒ ”…ŽŒ€ƒˆ’ŽŒ"
+20 PRINT "              ‘…„…—ˆŠ…                           "
+30 PRINT "…ˆ‡‚…‘’ŽŒ“ L ˆ‹ˆ W ‡€„€‰’… “‹…‚Ž… ‡€—…ˆ…"
+40 INPUT "‚‚…„ˆ’… ‚…˜ˆ‰ ˆ ‚“’…ˆ‰ „ˆ€Œ…’› ’Ž€ (CM) D,D1";D,I
+50 INPUT "‚‚…„ˆ’… ‚›‘Ž’“ ’Ž€,CM,";H
+55 INPUT "‚‚…„ˆ’… Ž’Ž‘ˆ’…‹œ“ž Œ€€ƒˆ’“ž Žˆ–€…ŒŽ‘’œ Œ";M
+60 INPUT "‡€„€‰’… ˆ„“Š’ˆ‚Ž‘’œ Š€’“˜Šˆ (ƒ) L";L
+70 INPUT "‡€„€‰’… ŠŽ‹ˆ—…‘’‚Ž ‚ˆ’ŠŽ‚ Š€’“˜Šˆ W";W
+80 LET K=D/I
+81 LET A=0
+82 IF K<1.75 THEN LET A=1
+90 IF A=0 THEN 110
+100 LET F=(D+I)/4/M/H/(D-I)
+101 GOTO 120
+110 LET F=1/2/M/H/LOG(D/I)
+120 IF W=0 THEN 140
+130 PRINT "ˆ„“Š’ˆ‚Ž‘’œ L=";W*W/F
+131 GOTO 60
+140 PRINT "—ˆ‘‹Ž ‚ˆ’ŠŽ‚ W=";SQR(L*F)
+150 GOTO 60
+160 END

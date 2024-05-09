@@ -1,0 +1,8 @@
+10 ? "‚›—ˆ‘‹…ˆ… F(Z)=LOG(Z)"
+20 INPUT "RE Z,IM Z ";A,B
+30 E=LOG(A*A+B*B)/2
+35 F=ATN(B/A)
+40 A=E
+45 B=F
+50 ? "F="A"+J*œ"B"+2*K*PI)"
+55 GOTO 20

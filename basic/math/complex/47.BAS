@@ -1,0 +1,36 @@
+5 ? "‚›—ˆ‘‹…ˆ… ”“–ˆ‰ X^2 €‘…„…‹…ˆŸ"
+10 INPUT "X^2,V ";X,V
+11 A=V/2
+12 B=X/2
+15 C=A
+20 G=1
+21 D=1
+25 IF INT(A)=0 THEN 40
+30 FOR I=1 TO A-1
+31 G=G*I
+32 NEXT I
+35 GOTO 55
+40 G=SQR(PI)
+45 IF C<1 THEN 55
+50 G=G*D/X
+51 D=D*C
+52 C=C-1
+53 GOTO 40
+55 F=(X^(A-1))/G/EXP(B)/(2^A)
+60 ? "F(X^2,V)="F
+70 S=0
+71 K=0
+72 W=0
+73 Z=0
+75 G=1
+80 K=K+1
+81 W=W+2
+82 Z=S
+85 G=G*(V+W)
+90 S=S+(X^K)/G
+95 IF S<>Z THEN 80
+100 P=2*X*F*(1+S)/V
+105 Q=1-P
+110 ? "P(X^2,V)="P
+115 ? "Q(X^2,V)="Q
+120 GOTO 10

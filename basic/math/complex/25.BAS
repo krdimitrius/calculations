@@ -1,0 +1,14 @@
+5 ? "‚›—ˆ‘‹…ˆ… ”“Š–ˆˆ SI(X)"
+10 INPUT "X";X
+20 B=X
+25 C=X
+30 D=-(X*X)/2
+35 I=0
+40 I=I+1
+45 E=(2*I+1)^2
+50 B=((2*I-1)*D*B)/(I*E)
+55 C=C+B
+60 IF ABS(B)<1E-9 THEN 80
+65 GOTO 40
+80 ? "SI(X)="C
+85 GOTO 10

@@ -1,0 +1,47 @@
+5 ? "êÖòÖçàÖ ëãì åÖíéÑéå LU-êÄáãéÜÖçàü"
+10 DATA 3
+15 DATA 3,2,1,4
+20 DATA 1,1,-1,1
+25 DATA 1,-2,1,3
+100 READ U%
+110 DIM A!(U%,U%),L!(U%,U%),U!(U%,U%)
+120 FOR I%=1TO U%
+130 FOR J%=1TO U%
+140 READ A!(I%,J%)
+150 NEXT J%
+160 READ A!(I%,0)
+170 NEXT I%
+1000 FOR I%=1TO U%
+1010 U!(I%,I%)=1
+1020 L!(I%,1)=A!(I%,1)
+1030 FOR J%=2TO I%
+1040 L!(I%,J%)=A!(I%,J%)
+1050 FOR K%=1TO J%-1
+1060 L!(I%,J%)=L!(I%,J%)-L!(I%,K%)*U!(K%,J%)
+1070 NEXT K%
+1080 NEXT J%
+1090 IF I%=U%TH1180
+1100 FOR J%=I%+1TO U%
+1110 U!(I%,J%)=A!(I%,J%)
+1120 IF I%=1TH1160
+1130 FOR K%=1TO I%-1
+1140 U!(I%,J%)=U!(I%,J%)-U!(K%,J%)*L!(I%,K%)
+1150 NEXT K%
+1160 U!(I%,J%)=U!(I%,J%)/L!(I%,I%)
+1170 NEXT J%
+1180 NEXT I%
+1190 FOR I%=1TO U%
+1200 IF I%=1TH1240
+1210 FOR J%=1TO I%-1
+1220 A!(I%,0)=A!(I%,0)-A!(J%,0)*L!(I%,J%)
+1230 NEXT J%
+1240 A!(I%,0)=A!(I%,0)/L!(I%,I%)
+1250 NEXT I%
+1260 FOR I%=U%-1TO1ST-1
+1270 FOR J%=U%TO I%+1ST-1
+1280 A!(I%,0)=A!(I%,0)-A!(J%,0)*U!(I%,J%)
+1290 NEXT J%
+1300 NEXT I%
+1400 FOR I%=1TO U%
+1410 ? "X("I%")="A!(I%,0)
+1420 NEXT I%

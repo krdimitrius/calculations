@@ -1,0 +1,11 @@
+10 ? "‚›—ˆ‘‹…ˆ… ƒ€ŒŒ€-”“Š–ˆˆ ƒ(•)"
+20 INPUT "X";Z
+25 X=Z
+30 A=1
+35 FOR I=1 TO 20
+40 Z=Z*(X+I)
+45 NEXT I
+50 B=X+21
+55 G=EXP(B*(LOG(B)-1)+1/12/B)*SQR(2*PI/B)/Z
+60 ? "ƒ(X)="G
+65 GOTO 20

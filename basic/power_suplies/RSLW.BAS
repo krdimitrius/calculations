@@ -1,0 +1,29 @@
+10 IF PEEK(32)<>0TH?CHR$(155)
+20 ? CHR$(12)"€‘—…’ L ˆ W –ˆ‹ˆ„ˆ—…‘Šˆ• Š€’“˜…Š ˆ„“Š’ˆ‚Ž‘’ˆ."
+30 INPUT "’ˆ (Ž„Ž‘‹Ž‰€Ÿ-0,ŒŽƒŽ‘‹Ž‰€Ÿ-1) ";K
+40 ? "…ˆ‡‚…‘’ŽŒ“ L ˆ‹ˆ W ‡€„€‰’… “‹…‚Ž… ‡€—…ˆ…."
+50 INPUT "L, ¬ªƒ ";L
+60 INPUT "W ";W
+70 INPUT "„‹ˆ€ Š€’“˜Šˆ,MM ";S
+80 S=S/10
+90 INPUT "„ˆ€Œ…’ Š€Š€‘€,MŒ ";D
+100 D=D/10
+110 IF K<>0 TH 170
+120 IF W=0 TH W=SQR(L/D*(100*L/D+44))EL L=D*W*W/(100*L/D+44)
+130 ? "L=";L"¬ªƒ  W=";W
+140 ? "€†Œˆ’… ‹ž“ž Š‹€‚ˆ˜“."
+150 IF INKEY$=""TH150
+160 GOTO 10
+170 INPUT "’Ž‹™ˆ€ Š€’“˜Šˆ,MŒ ";T
+180 T=T/10
+190 INPUT "„ˆ€Œ…’ Ž‚Ž„€ ‘ ˆ‡Ž‹Ÿ–ˆ…‰,MM ";P
+200 D=D+T
+210 K=L
+220 IF W=0 TH W=SQR(L/D/D/.08*(3*D+9*S+10*T))EL L=.08*D*D*W*W/(3*D+9*S+10*T)
+230 ? "L=";L"¬ªƒ  W=";W
+240 IF K=0 TH 290
+250 T1=.13*P*P*W/S
+260 PR=ABS(T-T1/10)/T*100
+270 ? "€‘—…’€Ÿ ’Ž‹™ˆ€ Š€’“˜Šˆ";T1;"MM."
+280 IF PR>10 TH ?"‘Ž‚…’“ž Ž‚’Žˆ’œ €‘—…’."
+290 GOTO 140

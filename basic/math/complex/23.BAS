@@ -1,0 +1,13 @@
+5 ? "‚›—ˆ‘‹…ˆ… AN(X)"
+10 INPUT "N";N
+20 INPUT "X";X
+25 K=EXP(-X)
+30 A=K/X
+35 IF N>0 THEN 50
+40 ? "AN(X)="A
+45 GOTO 20
+50 FOR I=1 TO N
+55 A=(K+I*A)/X
+60 NEXT I
+65 ? "AN(X)="A
+70 GOTO 20

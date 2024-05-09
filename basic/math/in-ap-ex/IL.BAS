@@ -1,0 +1,28 @@
+10 PRINT "àçíÖêèéãüñàü èé ãÄÉêÄçÜì Ñãü N+1 ìáãéÇ"
+20 INPUT "N"; N
+21 DIM A(2 * N)
+25 DIM B(2 * N)
+30 FOR I = 0 TO N
+35 PRINT "X"; I;
+40 INPUT A(I)
+45 PRINT "Y"; I;
+50 INPUT B(I)
+55 NEXT I
+60 INPUT "X"; X
+65 S = 0
+70 IF X = A(0) THEN PRINT "Y(X)="; B(0)
+75 IF X = A(0) THEN 60
+80 FOR J = 1 TO N
+81 C = 1
+85 FOR I = 1 TO N
+90 D = A(J) - A(I)
+95 IF I = J THEN D = X - A(J)
+100 IF D = 0 THEN PRINT "Y(X)="; B(I)
+105 IF D = 0 THEN 60
+110 C = C * (X - A(I)) / D
+115 NEXT I
+120 S = S + C * B(J)
+125 NEXT J
+130 PRINT "Y("; X; ")="; S
+135 GOTO 60
+

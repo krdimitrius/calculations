@@ -1,0 +1,15 @@
+5 ? "‚›—ˆ‘‹…ˆ… ”“Š–ˆˆ BN(X)"
+10 INPUT "N";N
+20 INPUT "X";X
+25 K=EXP(X)
+30 B=(K-1/K)/X
+40 IF N>0 THEN 50
+45 ? "BN(X)="B
+47 GOTO 20
+50 R=1
+55 FOR I=1 TO N
+60 R=-R
+65 B=(R*K-(1/K)+B*I)/X
+70 NEXT I
+75 ? "BN(X)="B
+80 GOTO 20

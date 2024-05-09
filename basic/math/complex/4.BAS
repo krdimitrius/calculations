@@ -1,0 +1,9 @@
+10 ? "ÇõóàëãÖçàÖ F(Z)=SQR(Z)"
+20 INPUT "RE Z,IM Z ";A,B
+30 G=SQR(A*A+B*B)
+35 E=SQR((A+G)/2)
+40 F=SQR((-A+G)/2)
+45 A=E
+50 B=F
+55 ? "RE Z=+-"A,"IM Z=+-"B
+60 GOTO 20

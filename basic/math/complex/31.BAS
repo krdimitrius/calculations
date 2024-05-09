@@ -1,0 +1,10 @@
+10 ? "‚›—ˆ‘‹…ˆ… …Ž‹Ž‰ ƒ€ŒŒ€-”“Š–ˆˆ G(A,X)"
+20 INPUT "A,X ";A,X
+25 B=INT(2*X+9)
+30 Y=B
+35 FOR I=B TO 1 STEP -1
+40 Y=Y*X/(I+A)+1
+45 NEXT I
+50 G=Y*EXP(-X)*X^A/A
+55 ? "G(A,X)="G
+60 GOTO 20

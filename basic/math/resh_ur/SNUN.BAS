@@ -1,0 +1,92 @@
+1 CLS 
+2 MI%=50
+3 E1!=1E-6
+4 X0!=1
+5 CLS 
+10 ? "Žƒ€ŒŒ€ …˜…ˆŸ ‘ˆ‘’…Œ …‹ˆ…‰›• “€‚…ˆ‰"
+20 ? "‘Ž ‘’ŽŠˆ 5000 ‡€ˆ‘›‚€ž’‘Ÿ “€‚…ˆŸ"
+30 INPUT "—ˆ‘‹Ž “€‚…ˆ‰";U%
+40 DIM A!(U%,U%),L!(U%,U%),X!(U%),F!(U%)
+50 ? "€—€‹œ›… ˆ‹ˆ†…ˆŸ:"
+60 FOR I%=1TO U%
+70 ? "X("I%")";
+75 X!(I%)=X0!
+80 INPUT X!(I%)
+90 NEXT I%
+100 GOSUB 9000
+110 ? "N","…˜…ˆ…","…‚Ÿ‡Š€"
+120 FOR I%=1 TO U%
+130 ? I%,X!(I%),F!(I%)
+140 NEXT I%
+150 GOTO 50
+5000 REM ‡„…‘œ ‡€ˆ‘›‚€ž’‘Ÿ “€‚…ˆŸ
+5010 F!(1)=X!(1)+3*LOG(X!(1))/LOG(10)-X!(2)*X!(2)
+5020 F!(2)=2*X!(1)*X!(1)-X!(1)*X!(2)-5*X!(1)+1
+5040 RETURN 
+9000 INPUT "ITmax";MI%
+9010 INPUT "EPS1";E1!
+9020 E2!=E1!
+9030 INPUT "EPS2";E2!
+9040 S%=0
+9050 ER%=1
+9060 GOSUB 9620
+9070 FOR J%=1TO U%
+9080 M!=X!(J%)
+9090 L!=E1!*ABS(M!)
+9100 X!(J%)=M!+L!
+9110 GOSUB 5000
+9120 FOR I%=1TO U%
+9130 A!(I%,J%)=(F!(I%)+A!(I%,0))/L!
+9140 NEXT I%
+9150 X!(J%)=M!
+9160 NEXT J%
+9170 S%=S%+1
+9180 IF S%>MI%TH?"EPS … „Ž‘’ˆƒ“’€"EL9200
+9190 RETURN 
+9200 FOR I%=1TO U%
+9210 L!(I%,1)=A!(I%,1)
+9220 FOR J%=2TO I%
+9230 L!(I%,J%)=A!(I%,J%)
+9240 FOR K%=1TO J%-1
+9250 L!(I%,J%)=L!(I%,J%)-L!(I%,K%)*L!(K%,J%)
+9260 NEXT K%
+9270 NEXT J%
+9280 IF I%=U%TH9370
+9290 FOR J%=I%+1TO U%
+9300 L!(I%,J%)=A!(I%,J%)
+9310 IF I%=1TH9350
+9320 FOR K%=1TO I%-1
+9330 L!(I%,J%)=L!(I%,J%)-L!(K%,J%)*L!(I%,K%)
+9340 NEXT K%
+9350 L!(I%,J%)=L!(I%,J%)/L!(I%,I%)
+9360 NEXT J%
+9370 NEXT I%
+9380 FOR I%=1TO U%
+9390 IF I%=1TH9430
+9400 FOR J%=1TO I%-1
+9410 A!(I%,0)=A!(I%,0)-A!(J%,0)*L!(I%,J%)
+9420 NEXT J%
+9430 A!(I%,0)=A!(I%,0)/L!(I%,I%)
+9440 NEXT I%
+9450 FOR I%=U%-1TO1ST-1
+9460 FOR J%=U%TO I%+1ST-1
+9470 A!(I%,0)=A!(I%,0)-A!(J%,0)*L!(I%,J%)
+9480 NEXT J%
+9490 NEXT I%
+9500 TT%=0
+9510 TI%=0
+9520 FOR I%=1TO U%
+9530 X!(I%)=X!(I%)+A!(I%,0)
+9540 IF ABS(A!(I%,0)/X!(I%))>E1!TH TT%=1
+9550 IF ABS(A!(I%,0)/X!(I%))>E2!TH TI%=1
+9560 NEXT I%
+9570 IF TT%=0TH9600
+9580 IF TI%=1TH9060EL GOSUB9620
+9590 GOTO 9170
+9600 ? "IT="S%
+9610 RETURN 
+9620 GOSUB 5000
+9630 FOR I%=1TO U%
+9640 A!(I%,0)=-F!(I%)
+9650 NEXT I%
+9660 RETURN 

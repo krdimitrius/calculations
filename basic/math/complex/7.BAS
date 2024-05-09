@@ -1,0 +1,8 @@
+10 ? "ÇõóàëãÖçàÖ F(Z)=Z^(1/N)"
+20 INPUT "RE Z,IM Z,N ";A,B,N
+30 X=SQR(A*A+B*B)
+35 Y=ATN(B/A)
+40 A=X^(1/N)*COS(Y/N)
+45 B=X^(1/N)*SIN(Y/N)
+50 ? "RE F(Z)="A,"IM F(Z)="B
+55 GOTO 20

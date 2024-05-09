@@ -1,0 +1,9 @@
+10 ? "‚›—ˆ‘‹…ˆ… F(Z)=1/Z"
+20 INPUT "RE Z,IM Z ";A,B
+30 G=A*A-B*B
+35 E=A/G
+40 F=-B/G
+45 A=E
+50 B=F
+55 ? "RE F(Z)="A,"IM F(Z)="B
+60 GOTO 20

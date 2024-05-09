@@ -1,0 +1,10 @@
+10 ? "‚›—ˆ‘‹…ˆ… ƒˆ…ƒ…ŽŒ…’ˆ—…‘ŠŽ‰ ”“K–ˆˆ F(A,B,C,X)"
+20 INPUT "A,B,C ";A,B,C
+30 INPUT "X";X
+35 F=LOG(23)/LOG(10)
+40 FOR I=23 TO 1 STEP -1
+45 D=I-1
+50 F=(D+A)*F*(D+B)/(D+C)/I*X+1
+55 NEXT I
+60 ? "F(A,B,S,X)="F
+65 GOTO 30

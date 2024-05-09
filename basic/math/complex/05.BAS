@@ -1,0 +1,8 @@
+10 ? "‚›—ˆ‘‹…ˆ… F(Z)=EXP(X)"
+20 INPUT "RE Z,IM Z ";A,B
+30 E=EXP(A)*COS(B)
+35 F=EXP(A)*SIN(B)
+40 A=E
+45 B=F
+50 ? "RE EXP(Z)="A,"IM EXP(Z)="B
+55 GOTO 20

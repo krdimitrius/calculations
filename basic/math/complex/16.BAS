@@ -1,0 +1,7 @@
+10 ? "ÇõóàëãÖçàÖ F(Z)=HCS(Z)"
+20 INPUT "RE Z,IM Z ";A,B
+25 E=COS(B)*(EXP(A)+EXP(-A))/2
+30 F=SIN(B)*(EXP(A)-EXP(-A))/2
+35 ? "RE F(Z)="E
+40 ? "IM F(Z)="F
+45 GOTO 20

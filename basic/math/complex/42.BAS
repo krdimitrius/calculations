@@ -1,0 +1,15 @@
+5 ? "‚›—ˆ‘‹…ˆ… „ˆ‹Žƒ€ˆ”Œ€"
+10 INPUT "X";X
+15 Y=X-1
+20 I=0
+25 S=0
+30 R=1
+35 P=1
+40 I=I+1
+45 R=-R
+50 P=P*Y
+55 D=R*P/I/I
+60 S=S+D
+65 IF ABS(D)>1E-9 THEN 40
+70 ? "„ˆ‹Žƒ€ˆ”Œ F(X)="S
+75 GOTO 10

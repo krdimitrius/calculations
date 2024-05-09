@@ -1,0 +1,8 @@
+10 ? "‚›—ˆ‘‹…ˆ… F(Z)=Z^2"
+20 INPUT "RE Z,IM Z ";A,B
+30 E=A*A-B*B
+35 F=2*A*B
+40 A=E
+45 B=F
+50 ? "RE F(Z)="A,"IM F(Z)="B
+55 GOTO 20

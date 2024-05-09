@@ -1,0 +1,34 @@
+5 ? "êÖòÖçàÖ ëãì åÖíéÑéå LU-êÄáãéÜÖçàü"
+5200 FOR I%=1TO U%
+5210 L!(I%,1)=A!(I%,1)
+5220 FOR J%=2TO I%
+5230 L!(I%,J%)=A!(I%,J%)
+5240 FOR K%=1TO J%-1
+5250 L!(I%,J%)=L!(I%,J%)-L!(I%,K%)*L!(K%,J%)
+5260 NEXT K%
+5270 NEXT J%
+5280 IF I%=U%TH5370
+5290 FOR J%=I%+1TO U%
+5300 L!(I%,J%)=A!(I%,J%)
+5310 IF I%=1TH5350
+5320 FOR K%=1TO I%-1
+5330 L!(I%,J%)=L!(I%,J%)-L!(K%,J%)*L!(I%,K%)
+5340 NEXT K%
+5350 L!(I%,J%)=L!(I%,J%)/L!(I%,I%)
+5360 NEXT J%
+5370 NEXT I%
+5380 FOR I%=1TO U%
+5390 IF I%=1TH5430
+5400 FOR J%=1TO I%-1
+5410 A!(I%,0)=A!(I%,0)-A!(J%,0)*L!(I%,J%)
+5420 NEXT J%
+5430 A!(I%,0)=A!(I%,0)/L!(I%,I%)
+5440 NEXT I%
+5450 FOR I%=U%-1TO1ST-1
+5460 FOR J%=U%TO I%+1ST-1
+5470 A!(I%,0)=A!(I%,0)-A!(J%,0)*L!(I%,J%)
+5480 NEXT J%
+5490 NEXT I%
+5500 FOR I%=1TO U%
+5510 ? "X("I%")="A!(I%,0)
+5520 NEXT I%

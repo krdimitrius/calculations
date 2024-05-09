@@ -1,0 +1,16 @@
+10 ? "‚›—ˆ‘‹…ˆ… ”“Š–ˆ‰ ERF(X),ERFC(X)"
+20 INPUT "X";X
+21 R=1
+22 S=X
+25 N=0
+30 N=N+1
+31 K=2*N+1
+35 R=-R/N
+40 W=S
+45 S=S+(X^K)*R/K
+50 IF ABS(W-S)>=1E-10 THEN 30
+60 E=2*S/SQR(PI)
+65 ? "ERF(X)="E
+70 F=1-E
+75 ? "ERFC(X)="F
+80 GOTO 20

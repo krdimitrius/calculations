@@ -1,4 +1,5 @@
 # Utilities for engineering calculations
-* basic - Old BASIC collection 
-* transformer - Power transofrmer calculation
 * apaf - Active filters calculation
+* basic - Old BASIC collection 
+* life - Game "LIFE"
+* transformer - Power transofrmer calculation

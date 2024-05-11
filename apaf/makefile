@@ -1,7 +1,7 @@
 # @file makefile
 # @author Dmitry Krysin
 # @date 2010
-# @brief build Makefile
+# @brief Makefile
 
 # имя
 NAME	?= apaf

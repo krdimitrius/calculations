@@ -1,6 +1,6 @@
 /**
  * @file mstat.c
- * @author Дмитрий Крысин <krysin@tecon.ru>
+ * @author Dmitry Krysin
  * @date 2020
  * @brief Статистическая обработка массива
  */
